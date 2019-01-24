@@ -47,13 +47,13 @@ def main():
     
     # since HuffPo's politics section is paginated, do a while loop and
     # increment the page number at the end of each loop
-    huffpo_base = 'https://www.huffingtonpost.com/section/politics?page='
+    huffpo_base = 'https://www.huffingtonpost.com'
     huffpo_page = 1
     
     # 23 was set as the max page as it was the furthest back available
     while huffpo_page < 24:
         # request the URL and retrieve the HTML
-        huffpo_url = huffpo_base + str(huffpo_page)
+        huffpo_url = huffpo_base + '/section/politics?page=' + str(huffpo_page)
         driver.get(huffpo_url)
         html = driver.page_source
         soup = BeautifulSoup(html, "lxml")
